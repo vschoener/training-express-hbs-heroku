@@ -1,8 +1,7 @@
 
 const express = require('express');
 const hbs = require('hbs');
-
-
+const port = process.env.PORT || "8080";
 var app = express();
 
 hbs.registerHelper('getFullName', () => {
@@ -34,4 +33,6 @@ app.get('/', (req, res) => {
     });
 });
 
-app.listen(8000);
+app.listen(port,  () => {
+    console.log(`Server running on ${port}`);
+});
